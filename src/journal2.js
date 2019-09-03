@@ -1,3 +1,5 @@
+
+
 function Journal (name, entry) {
   this.name = name;
   this.entry = entry;
@@ -11,12 +13,12 @@ Journal.prototype.pushEntry = function(entries) {
 
 
 
-$(document).ready(function(){
-
-});
 
 
 
+
+var vowelArray = [];
+var conArray = [];
 
 
 function Entry (title, date, teaser, body) {
@@ -36,3 +38,27 @@ Entry.prototype.getTeaser = function() {
   var firstPeriod = this.body.search(".");
   this.teaser = this.body.slice(0, firstPeriod);
 };
+
+Entry.prototype.vowelCheck = function() {
+  var characterArray = this.body.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s/g, '').toLowerCase().split("");
+  characterArray.forEach(function(character) {
+    if (character === "a" || "e" || "i" || "o" || "u") {
+      character.push(vowelArray)
+    }
+    else {
+      character.push(conArray)
+    }
+  })
+
+
+
+
+
+
+  for (var i = 0; i < body.length; i++) {
+    var letter = i;
+    if (i === "a" || "e" || "i" || "o" || "u") {
+      i.push(vowelArray);
+    }
+  }
+}
