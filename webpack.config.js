@@ -17,7 +17,7 @@ devServer: {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'journal2',
+      title: 'webpack-sept-3',
       template: './src/index.html',
       inject: 'body'
     })
