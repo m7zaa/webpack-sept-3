@@ -1,6 +1,6 @@
 
 
-function Journal (name, entry) {
+export function Journal (name, entry) {
   this.name = name;
   this.entry = entry;
 }
@@ -17,19 +17,19 @@ Journal.prototype.pushEntry = function(entries) {
 
 
 
-var vowelArray = [];
-var conArray = [];
 
 
-function Entry (title, date, teaser, body) {
+export function Entry (title, date, teaser, body, vowels, cons) {
   this.title = title;
   this.date = date;
   this.teaser = teaser;
   this.body = body;
+  this.vowels = vowels;
+  this.cons = cons;
 }
 
-Entry.body.prototype.wordCount = function() {
-  var entrySplit = this.split(" ");
+Entry.prototype.wordCount = function() {
+  var entrySplit = this.body.split(" ");
   return entrySplit.length();
 };
 
@@ -40,25 +40,14 @@ Entry.prototype.getTeaser = function() {
 };
 
 Entry.prototype.vowelCheck = function() {
-  var characterArray = this.body.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s/g, '').toLowerCase().split("");
+  var characterArray = this.body.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s/g, '').toLowerCase().split(""); //eslint-disable-line
   characterArray.forEach(function(character) {
     if (character === "a" || "e" || "i" || "o" || "u") {
-      character.push(vowelArray)
+      console.log(character);
+      return this.vowels;
     }
     else {
-      character.push(conArray)
+      this.cons.push(character);
     }
-  })
-
-
-
-
-
-
-  for (var i = 0; i < body.length; i++) {
-    var letter = i;
-    if (i === "a" || "e" || "i" || "o" || "u") {
-      i.push(vowelArray);
-    }
-  }
-}
+  });
+};

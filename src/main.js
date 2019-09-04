@@ -1,12 +1,21 @@
-import './styles.css';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
-$(document).ready(function() {
-  event.preventDefault();
-  var entry = $("#entry").val();
+import { Entry } from './journal2';
 
-  
+// import { Journal } from './journal2';
+
+$(document).ready(function() {
+  $("#form").submit(function(event){
+    event.preventDefault();
+    console.log("working");
+    var userInput = $("#entry").val();
+    var journalEntry = new Entry ("title", "date", "teaser", userInput);
+    // journalEntry.vowelCheck();
+    console.log(journalEntry.vowelCheck());
+  });
+
+
 });
